@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}
+All tasks
+{% endblock %}
+
+{% block content %}
+{% for task in tasks %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      {{ task.title | truncatechars:50 }}
+      <div class="pull-right">{{ task.reward }}</div>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div class="col-md-3">
+      <ul class="list-unstyled">
+        {% with task.picture_set.all as task_pictures %}
+        {% if task_pictures %}
+        {% for picture in task_pictures %}
+        <li><img src="{{ picture.image.url }}"></li>
+        {% endfor %}
+        {% else %}
+        <li><img src="{% static "" %}" alt="No image available"></li>
+        {% endif %}
+        {% endwith %}
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <p>{{ task.description | truncatechars:400 }}</p>
+    </div>
+    <div class="col-md-3">
+      <h4>Location:</h4>
+      <p>{{ task.location | truncatechars:100 }}</p>
+      <hr>
+      <ul class="list-unstyled">
+        <li>Start date: {{ task.start_date }}</li>
+        <li>End date: {{ task.end_date }}</li>
+      </ul>
+    </div>
+    <ul class="list-inline">
+      {% for tag in task.tags.all %}
+      <li>{{ tag }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

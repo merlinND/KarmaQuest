@@ -1,7 +1,7 @@
 import datetime
 from django.shortcuts import render_to_response
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from tasks.models import Task
 
 def home_feed(request):
@@ -15,7 +15,7 @@ def list_all_tasks(request):
     List all the active tasks, adding a few features
     """
 
-class ListTasksView(ListView):
+class TaskListview(ListView):
     http_method_names = ['get']
     template_name = 'all_tasks.html'
     context_object_name = 'tasks'
@@ -26,7 +26,7 @@ class ListTasksView(ListView):
         return tasks.order_by('-start_date')
 
     def get_context_data(self, **kwargs):
-        _super = super(ListTasksView, self)
+        _super = super(TaskListview, self)
         context = _super.get_context_data(**kwargs)
         adjacent_pages = 2
         page_number = context['page_obj'].number
@@ -45,4 +45,10 @@ class ListTasksView(ListView):
             'show_last': num_pages not in page_numbers,
             })
         return context
-list_all_tasks = ListTasksView.as_view()
+list_all_tasks = TaskListview.as_view()
+
+class TaskDetailView(DetailView):
+    model = Task
+    pk_url_kwarg = 'task_id'
+    template_name = 'task_detail.html'
+task_detail = TaskDetailView.as_view()

@@ -32,7 +32,10 @@ All tasks
       </ul>
     </div>
     <div class="col-md-6">
-      <p>{{ task.description | truncatechars:400 }}</p>
+      <p>
+        {{ task.description | truncatechars:400 }}
+      </p>
+      <a href="{% url "tasks:task_detail" task.id %}">See detailed information</a>
     </div>
     <div class="col-md-3">
       <h4>Location:</h4>

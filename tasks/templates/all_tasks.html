@@ -7,6 +7,8 @@ All tasks
 {% endblock %}
 
 {% block content %}
+
+{# Task list #}
 {% for task in tasks %}
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -24,7 +26,7 @@ All tasks
         <li><img src="{{ picture.image.url }}"></li>
         {% endfor %}
         {% else %}
-        <li><img src="{% static "" %}" alt="No image available"></li>
+      <li><i class="fa fa-camera" style="font-size:130px; color: #ccc;"></i></li>
         {% endif %}
         {% endwith %}
       </ul>
@@ -49,4 +51,52 @@ All tasks
   </div>
 </div>
 {% endfor %}
+
+{# Pagination #}
+<ul class="pagination">
+  {# Previous page link #}
+  {% if page_obj.has_previous %}
+  <li>
+    <a href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+  </li>
+  {% else %}
+  <li class="disabled"><a href="#">&laquo;</a></li>
+  {% endif %}
+
+  {# First page #}
+  {% if show_first %}
+  <li>
+    <a href="?page=1">1</a>
+  </li>
+  <li class="disabled"><a href="#">...</a></li>
+  {% endif %}
+
+  {# List of pages (with current "active") #}
+  {% for page in page_numbers %}
+  {% ifequal page page_obj.number %}
+  <li class="active">
+    <a href="#">{{ page }}</a>
+  </li>
+  {% else %}
+  <li>
+    <a href="?page={{ page }}">{{ page }}</a>
+  </li>
+  {% endifequal %}
+  {% endfor %}
+
+  {# Last page #}
+  {% if show_last %}
+  <li class="disabled"><a href="#">...</a></li>
+  <li><a href="?page={{ paginator.num_pages }}">{{ paginator.num_pages }}</a></li>
+  {% endif %}
+
+  {# Next page link #}
+  {% if page_obj.has_next %}
+  <li>
+    <a href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+  </li>
+  {% else %}
+  <li class="disabled"><a href="#">&raquo;</a></li>
+  {% endif %}
+</ul>
 {% endblock %}

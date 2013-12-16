@@ -16,7 +16,9 @@ class Task(models.Model):
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
     tags = models.ManyToManyField(Tag)
-    # TODO repeatability ?
+
+    def __unicode__(self):
+        return self.title
 
 class Picture(models.Model):
     task = models.ForeignKey(Task)

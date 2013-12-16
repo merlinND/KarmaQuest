@@ -6,6 +6,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
         url(r'^$', RedirectView.as_view(url='/tasks/', permanent=False)),
-        url(r'^tasks/', include('tasks.urls'), name='tasks'),
+        url(r'^tasks/', include('tasks.urls', namespace='tasks')),
         url(r'^admin/', include(admin.site.urls)),
         )

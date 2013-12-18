@@ -70,3 +70,8 @@ STATICFILES_DIRS = (
 TEMPLATE_DIRS = (
         os.path.join(BASE_DIR, 'templates'),
         )
+
+# Auth setup
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/tasks/login'
+LOGOUT_URL = '/tasks/logout'

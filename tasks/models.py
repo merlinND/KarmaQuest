@@ -27,4 +27,4 @@ class Picture(models.Model):
 class User(BaseUser):
     level = models.PositiveIntegerField(default=0)
     points = models.PositiveIntegerField(default=0)
-    tasks = models.ManyToManyField(Task)
+    tasks = models.ManyToManyField(Task, blank=True)

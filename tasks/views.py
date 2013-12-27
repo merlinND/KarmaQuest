@@ -57,6 +57,7 @@ class TaskDetailView(DetailView):
     model = Task
     pk_url_kwarg = 'task_id'
     template_name = 'task_detail.html'
+    context_object_name = 'task'
 task_detail = TaskDetailView.as_view()
 
 class AuthenticationForm(auth_forms.AuthenticationForm):

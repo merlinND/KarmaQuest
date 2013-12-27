@@ -8,6 +8,10 @@ All tasks
 
 {% block content %}
 
+{# No task #}
+{% if tasks.count < 1 %}
+  <p>No tasks are available right now.</p>
+{% endif %}
 {# Task list #}
 {% for task in tasks %}
 <div class="panel panel-default">
@@ -56,6 +60,7 @@ All tasks
 {% endfor %}
 
 {# Pagination #}
+{% if page_obj.has_previous or page_obj.has_next %}
 <ul class="pagination">
   {# Previous page link #}
   {% if page_obj.has_previous %}
@@ -102,4 +107,5 @@ All tasks
   <li class="disabled"><a href="#">&raquo;</a></li>
   {% endif %}
 </ul>
+{% endif %}
 {% endblock %}

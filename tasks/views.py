@@ -43,7 +43,7 @@ class TaskListView(ListView):
         endPage = page_number + adjacent_pages + 1
         if endPage >= num_pages - 1:
             endPage = num_pages + 1
-        page_numbers = [n for n in xrange(startPage, endPage) \
+        page_numbers = [n for n in range(startPage, endPage) \
                 if n > 0 and n <= num_pages]
         context.update({
             'page_numbers': page_numbers,

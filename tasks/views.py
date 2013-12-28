@@ -28,6 +28,7 @@ class TaskListView(ListView):
     paginate_by = 30
 
     def get_queryset(self):
+        # List only tasks that start today or later
         tasks = Task.objects.filter(start_date__gt=datetime.date.today())
         return tasks.order_by('-start_date')
 

@@ -1,1 +1,41 @@
 {% extends "base.html" %}
+{% block title %}
+{{ task.title }}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  {# Task details #}
+  <section class="col-sm-8 col-sm-push-4">
+    <header>Images in a slider</header>
+    <h2>
+      {{ task.title }}
+      <div class="pull-right karma-points">{{ task.reward }}</div>
+      <small>by &lt;organization's name&gt;</small>
+    </h2>
+
+    {# Tags #}
+    {% for tag in task.tags.all %}
+      <a href="#"><span class="label label-default">{{ tag.title }}</span></a>
+    {% endfor %}
+    
+    <p>{{ task.description }}</p>
+    <p>Location (with map)</p>
+    <p>Start and end date + explicit duration</p>
+    <p>
+      <button type="button" class="btn btn-primary">Participate</button> and win <b>{{ task.reward }} karma points
+    </b></p>
+  </section>
+
+  {# About the organization #}
+  <aside class="col-sm-4 col-sm-pull-8">
+    {% include "organization_overview.html" %}
+  </aside>
+
+</div>
+
+{# Related tasks #}
+<section class = "row">
+  {% include "related_tasks.html" %}
+</section>
+{% endblock %}

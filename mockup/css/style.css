@@ -1,0 +1,104 @@
+@import url(normalize.css);
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  font-size: 12px; }
+
+header {
+  margin: 0;
+  background: #00A8C6;
+  position: relative;
+  color: #fff;
+  height: 3.8em; }
+  header h1 {
+    font-family: Raleway, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0.3em;
+    color: #fff;
+    position: relative; }
+  header .search-form {
+    width: 270px;
+    position: absolute;
+    left: 50%;
+    margin-left: -125px;
+    top: 0;
+    padding: 1em; }
+    header .search-form button {
+      background: url("../img/lupe.png") left top;
+      width: 20px;
+      height: 20px;
+      border: none;
+      position: relative;
+      top: -0.3em;
+      margin: 0 0.2em; }
+    header .search-form input {
+      border: none;
+      border-radius: 2px;
+      height: 1.7em;
+      padding: 2px 5px; }
+  header .profile {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 10; }
+    header .profile .profile-picture {
+      width: 35px;
+      height: 35px;
+      padding: 6px;
+      position: relative;
+      float: left; }
+    header .profile .profile-data {
+      width: 150px;
+      height: 2em;
+      font-weight: bold;
+      position: relative;
+      float: right;
+      line-height: 2.1; }
+    header .profile .level-container {
+      width: 11em;
+      height: 1.2em;
+      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.25);
+      position: relative;
+      line-height: 1.2; }
+    header .profile .level-bar {
+      background: #F9F2E7;
+      width: 50%;
+      height: 100%;
+      color: #00A6C4;
+      border-radius: 3px;
+      position: relative;
+      text-align: center; }
+    header .profile .profile-drop {
+      position: absolute;
+      z-index: 0;
+      background: #40C0CB;
+      top: 3.8em;
+      right: 0;
+      width: 0;
+      overflow: hidden;
+      -moz-transition: 0.1s all; }
+      header .profile .profile-drop li {
+        margin: 0.5em;
+        padding: 0 0.5em;
+        list-style: none; }
+        header .profile .profile-drop li a {
+          color: #fff;
+          font-weight: bold;
+          text-decoration: none; }
+          header .profile .profile-drop li a:hover {
+            background: rgba(255, 255, 255, 0.2); }
+    header .profile:hover .profile-drop {
+      right: 0;
+      width: 198px; }
+
+.sidebar {
+  width: 220px;
+  background: red;
+  position: absolute; }
+
+.content {
+  margin-left: 230px;
+  background: blue; }

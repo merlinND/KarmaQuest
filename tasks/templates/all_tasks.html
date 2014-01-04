@@ -50,11 +50,9 @@ All tasks
         <li>End date: {{ task.end_date }}</li>
       </ul>
     </div>
-    <ul class="list-inline">
-      {% for tag in task.tags.all %}
-      <li>{{ tag }}</li>
-      {% endfor %}
-    </ul>
+    
+    {% include "tags_list.html" %}
+
   </div>
 </div>
 {% endfor %}

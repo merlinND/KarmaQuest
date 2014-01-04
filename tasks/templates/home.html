@@ -5,5 +5,18 @@ Home
 {% endblock %}
 
 {% block content %}
-Your feed is empty for now.
+	{% block upcoming %}
+	<section>
+		<h3>Upcoming tasks</h3>
+		<p>TODO</p>
+	</section>
+	{% endblock upcoming %}
+
+	{% block feed %}
+	<section>
+		<h3>Feed</h3>
+		{% include "three_tasks_placeholder.html" %}
+		<!--<p>Your feed is empty for now.</p>-->
+	</section>
+	{% endblock feed %}
 {% endblock content %}

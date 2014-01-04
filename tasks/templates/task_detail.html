@@ -7,7 +7,7 @@
 <div class="row">
   {# Task details #}
   <section class="col-sm-8 col-sm-push-4">
-    <header>Images in a slider</header>
+    <!--<header>Images in a slider</header>-->
     <h2>
       {{ task.title }}
       <div class="pull-right karma-points">{{ task.reward }}</div>
@@ -15,12 +15,13 @@
     </h2>
 
     {# Tags #}
-    {% for tag in task.tags.all %}
-      <a href="#"><span class="label label-default">{{ tag.title }}</span></a>
-    {% endfor %}
+    {% include "tags_list.html" %}
     
     <p>{{ task.description }}</p>
-    <p>Location (with map)</p>
+
+    {# Location (map) #}
+    {% include "map_component.html" %}
+
     <p>Start and end date + explicit duration</p>
     <p>
       <button type="button" class="btn btn-primary">Participate</button> and win <b>{{ task.reward }} karma points

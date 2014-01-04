@@ -99,6 +99,17 @@ header {
   background: red;
   position: absolute; }
 
-.content {
-  margin-left: 230px;
-  background: blue; }
+.karma-points {
+  display: inline-block;
+  margin-top: -8px;
+  padding: 5px;
+  border: 3px solid #ffce1e;
+  /* #428bca */
+  border-radius: 100%; }
+
+.tags .glyphicon {
+  margin-right: 10px; }
+.tags li {
+  margin-right: 5px;
+  padding: 5px !important;
+  border: 1px grey solid; }

@@ -8,9 +8,7 @@
 
   {# Quick overview of the organization #}
   <aside class="col-sm-4">
-    <h3>About {{ organization.name }}</h3>
-    <img src="http://placekitten.com/180/180" alt = "{{ organization.name }}'s logo" class="img-rounded">
-    <p>{{ organization.mission_statement }}</p>
+    {% include "organization_overview.html" with organization=organization %}
   </aside>
 
   {# Organization details #}

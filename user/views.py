@@ -6,15 +6,28 @@ from django.contrib.auth.decorators import login_required
 from django import forms
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.views.generic import DetailView
 
+from user.models import UserInformation
 
 @login_required(login_url='/user/login/')
 def user_profile(request):
     """
     Show the user's profile page.
     """
-    
-    return render_to_response('profile.html', context_instance=RequestContext(request))
+    user_info = UserInformation.objects.get(user_id=request.user.id)
+    context = RequestContext(request, {
+        'user_info': user_info
+        });
+    return render_to_response('profile.html', context_instance=context)
+
+#@login_required(login_url='/user/login/')
+# class UserProfileView(DetailView):
+#     model = UserInformation
+#     template_name = 'profile.html'
+#     pk_url_kwarg = 'task_id'
+#     context_object_name = 'user_info'
+# user_profile = UserProfileView.as_view()
 
 
 # Login/logout

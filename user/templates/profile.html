@@ -7,9 +7,9 @@ Profile
 {% block content %}
 	<section>
 		<h2>Welcome, {{ user }}!</h2>
-		<p>Profile picture</p>
-		<p>Current level</p>
-		<p>Total points (progress bar to next level)</p>
+		<img src="http://www.placekitten.com/50/50" class="image-rounded" alt="{{ user }}'s profile picture">
+		<p>Current level: {{ user_info.level }}</p>
+		<p>Total points: <span class="karma-points">{{ user_info.points }}</span> (progress bar to next level)</p>
 		<p>Achievements</p>
 	</section>
 

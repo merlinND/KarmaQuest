@@ -10,12 +10,6 @@ def home_feed(request):
     """
     return render_to_response('home.html')
 
-def list_all_tasks(request):
-    """
-    List all the active tasks, adding a few features
-    """
-    pass
-
 class TaskListView(ListView):
     http_method_names = ['get']
     template_name = 'all_tasks.html'

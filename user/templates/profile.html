@@ -14,8 +14,10 @@ Profile
 	</section>
 
 	<section>
-		<h3>Upcoming tasks</h3>
+		<!-- <h3>Upcoming tasks</h3> -->
 
 		<h3>Previously completed tasks</h3>
+
+		{% include "list_tasks.html" with tasks=user_info.tasks.all %}
 	</section>
 {% endblock content %}

@@ -13,6 +13,9 @@ class Organization(models.Model):
     location = models.CharField(max_length=200)
     tags = models.ManyToManyField(Tag)
 
+    def __unicode__(self):
+        return self.name
+
 class Task(models.Model):
     organizer = models.ForeignKey(Organization)
     created_date = models.DateTimeField(auto_now_add=True)

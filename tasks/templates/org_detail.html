@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}
+{{ organization.title }}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+
+  {# Quick overview of the organization #}
+  <aside class="col-sm-4">
+    <h3>About {{ organization.name }}</h3>
+    <img src="http://placekitten.com/180/180" alt = "{{ organization.name }}'s logo" class="img-rounded">
+    <p>{{ organization.mission_statement }}</p>
+  </aside>
+
+  {# Organization details #}
+  <section class="col-sm-8">
+    <!--<header>Cover image</header>-->
+    <h2>{{ organization.name }}</h2>
+
+    {# Tags #}
+    {% include "tags_list.html" with tags=organization.tags.all %}
+    
+    <p>{{ organization.description }}</p>
+
+    {# Location (map) #}
+    {% include "map_component.html" %}
+    <p>
+      {# TODO: button should lead to a list of tasks linked to this organization only #}
+      <a href="tasks/"><button type="button" class="btn btn-primary">See tasks</button></a> and help this organization
+    </p>
+  </section>
+
+</div>
+
+{# Related tasks #}
+<section class = "row">
+  <h2>In the past, {{ organization.name }} needed help to...</h2>
+  {% include "three_tasks_placeholder.html" %}
+</section>
+{% endblock %}

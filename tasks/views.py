@@ -7,7 +7,7 @@ from django.forms.widgets import TextInput, PasswordInput
 from django import forms
 from django.shortcuts import render_to_response
 from django.views.generic import ListView, DetailView
-from tasks.models import Task
+from tasks.models import Task, Organization
 
 def home_feed(request):
     """
@@ -60,6 +60,13 @@ class TaskDetailView(DetailView):
     template_name = 'task_detail.html'
     context_object_name = 'task'
 task_detail = TaskDetailView.as_view()
+
+class OrgDetailView(DetailView):
+    model = Organization
+    pk_url_kwarg = 'org_id'
+    template_name = 'org_detail.html'
+    context_object_name = 'organization'
+org_detail = OrgDetailView.as_view()
 
 class AuthenticationForm(auth_forms.AuthenticationForm):
     username = forms.CharField(max_length=254,

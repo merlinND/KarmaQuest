@@ -7,7 +7,15 @@ class Tag(models.Model):
     def __unicode__(self):
         return self.title
 
+class Organization(models.Model):
+    name = models.CharField(max_length=100)
+    mission_statement = models.TextField(max_length=255)
+    description = models.TextField()
+    location = models.CharField(max_length=200)
+    tags = models.ManyToManyField(Tag)
+
 class Task(models.Model):
+    #organizer = models.ForeignKey(Organization)
     created_date = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100)
     description = models.TextField()

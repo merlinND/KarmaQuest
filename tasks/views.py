@@ -1,10 +1,5 @@
-import functools
 import datetime
-from django.contrib.auth import forms as auth_forms
-from django.contrib.auth import views as auth_views
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.forms.widgets import TextInput, PasswordInput
-from django import forms
 from django.shortcuts import render_to_response
 from django.views.generic import ListView, DetailView
 from tasks.models import Task, Organization
@@ -67,23 +62,3 @@ class OrgDetailView(DetailView):
     template_name = 'org_detail.html'
     context_object_name = 'organization'
 org_detail = OrgDetailView.as_view()
-
-class AuthenticationForm(auth_forms.AuthenticationForm):
-    username = forms.CharField(max_length=254,
-            widget=TextInput(attrs={
-                'placeholder': 'Username',
-                'class': 'form-control',
-                'required': '',
-                }))
-    password = forms.CharField(label='Password',
-            widget=PasswordInput(attrs={
-                'placeholder': 'Password',
-                'class': 'form-control',
-                'required': '',
-                }))
-
-# Login/logout
-login = functools.partial(auth_views.login,
-        template_name='login_form.html',
-        authentication_form=AuthenticationForm)
-logout = auth_views.logout

@@ -7,7 +7,4 @@ urlpatterns = patterns('tasks.views',
 
         #url(r'^$org/', 'list_all_organizations', name='all_organizations'),
         url(r'^org/(?P<org_id>\d+)/detail$', 'org_detail', name='org_detail'),
-        
-        url(r'^login$', 'login', name='login'),
-        url(r'^logout$', 'logout', name='logout'),
         )

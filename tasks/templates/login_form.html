@@ -9,7 +9,7 @@
 
 {# Form display #}
 {% block content %}
-<form method="post" action="">
+<form method="post" action="{% url "user:user_profile" %}">
     {% csrf_token %}
     {# Form heading #}
     <h2 class="form-signin-heading">

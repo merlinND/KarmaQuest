@@ -27,10 +27,7 @@
               <a class="navbar-brand" href="{% url "tasks:home_feed" %}">KarmaQuest</a>
             </div>
             <div id="navbar-collapse" class="collapse navbar-collapse">
-              <ul class="nav navbar-nav">
-                <li><a href="{% url "tasks:home_feed" %}">Home feed</a></li>
-                <li><a href="{% url "tasks:all_tasks" %}">Tasks</a></li>
-                <li><a href="{% url "user:user_profile" %}">Your profile</a></li>
+              {% include "menu.html" %}
             </div>
           </nav>
           {% block content %}

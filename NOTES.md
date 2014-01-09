@@ -1,11 +1,11 @@
-# Karma Quest (?)
+# Karma Quest
 
 ## Target users
 
 - Organizations (NGOs & other):
   - post tasks (can take place at a specific location, from home, for 1 person or a group, etc)
-- companies can sponsor events: hand out goodies, etc
-- organizations need to be validated by admins before being able to post a new task
+  - companies can sponsor events: hand out goodies, etc
+  - organizations need to be validated by admins before being able to post a new task
 - People:
   - browse tasks by interest, type, dates, location
   - complete tasks
@@ -39,7 +39,12 @@ About the organization:
 - friends that completed tasks for this organizer
 
 Call to action button (big)
-Related tasks
+
+Related tasks:
+- photo
+- title
+- quick description
+- "Learn more" button
 
 ## Organization page
 

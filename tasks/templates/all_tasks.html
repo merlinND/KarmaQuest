@@ -22,7 +22,7 @@ All tasks
     </h3>
   </div>
   <div class="panel-body">
-    <div class="col-md-3">
+    <div class="col-md-3 col-xs-3">
       <ul class="list-unstyled">
         {% with task.picture_set.all as task_pictures %}
         {% if task_pictures %}
@@ -30,18 +30,18 @@ All tasks
         <li><img src="{{ picture.image.url }}"></li>
         {% endfor %}
         {% else %}
-      <li><i class="fa fa-camera" style="font-size:130px; color: #ccc;"></i></li>
+        <li><i class="fa fa-camera" style="font-size:130px; color: #ccc;"></i></li>
         {% endif %}
         {% endwith %}
       </ul>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 col-xs-6">
       <p>
         {{ task.description | truncatechars:400 }}
       </p>
       <a href="{% url "tasks:task_detail" task.id %}">See detailed information</a>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 col-xs-3">
       <h4>Location:</h4>
       <p>{{ task.location | truncatechars:100 }}</p>
       <hr>
@@ -51,7 +51,7 @@ All tasks
       </ul>
     </div>
     
-    {% include "tags_list.html" %}
+    {% include "tags_list.html" with tags=task.tags.all %}
 
   </div>
 </div>

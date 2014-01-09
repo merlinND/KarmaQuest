@@ -15,7 +15,7 @@
     </h2>
 
     {# Tags #}
-    {% include "tags_list.html" %}
+    {% include "tags_list.html" with tags=task.tags.all %}
     
     <p>{{ task.description }}</p>
 
@@ -24,8 +24,8 @@
 
     <p>Start and end date + explicit duration</p>
     <p>
-      <button type="button" class="btn btn-primary">Participate</button> and win <b>{{ task.reward }} karma points
-    </b></p>
+      <button type="button" class="btn btn-primary">Participate</button> and win <b>{{ task.reward }} karma points</b>
+    </p>
   </section>
 
   {# About the organization #}

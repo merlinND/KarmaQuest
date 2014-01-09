@@ -1,7 +1,7 @@
 {# List of all the tags #}
 <ul class="list-inline tags">
   <span class="glyphicon glyphicon-tags"></span>
-  {% for tag in task.tags.all %}
+  {% for tag in tags %}
   <li class="label label-default">{{ tag }}</li>
   {% endfor %}
 </ul>

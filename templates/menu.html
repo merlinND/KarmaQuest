@@ -1,5 +1,30 @@
-<ul class="nav navbar-nav">
-  <li><a href="{% url "tasks:home_feed" %}">Home feed</a></li>
-  <li><a href="{% url "tasks:all_tasks" %}">Tasks</a></li>
-  <li><a href="{% url "user:user_profile" %}">Your profile</a></li>
-</ul>
+<header>
+		<h1><a href="{% url "tasks:home_feed" %}">KarmaQuest.org</a></h1>
+		<form action="" class="search-form">
+			<input type="text" placeholder="Search...">
+			<button type="submit"></button>
+		</form>
+		<ul class="header-nav">
+		<li><a href="{% url "tasks:home_feed" %}">Home feed</a></li><li>
+		<a href="{% url "tasks:all_tasks" %}">Tasks</a></li>
+  	</ul>
+		<div class="profile">
+			<div class="profile-picture">
+				<img width="35" height="35" src="http://placekitten.com/35/35">
+			</div>
+			<div class="profile-data">
+				John Doe <i class="fa fa-caret-down"></i>
+				<div class="level-container">
+					<div class="level-bar">
+						13
+					</div>
+				</div>
+			</div>
+			<div class="profile-drop">
+				<ul>
+					<li><a href="{% url "user:user_profile" %}">Profile</a></li>
+					<li><a href="">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>

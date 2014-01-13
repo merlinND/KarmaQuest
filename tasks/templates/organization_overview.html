@@ -1,14 +1,11 @@
 <h3>About {{ organization.name }}</h3>
-<img src="http://placekitten.com/180/180" alt = "{{ organization.name }}'s logo" class="img-rounded">
+<img src="/{{ organization.logo.url }}" alt = "{{ organization.name }}'s logo" class="img-rounded">
 <p>{{ organization.mission_statement }}</p>
 
 <ul id="sidebar">
-  <li>Example of most</li>
-  <li>successful tasks</li>
+  {# List of most successful tasks #}
 </ul>
 
 <ul id="sidebar">
-  <li>List of friends</li>
-  <li>that completed tasks</li>
-  <li>for this organization</li>
+  {# List of friends who were involved with this organization #}
 </ul>

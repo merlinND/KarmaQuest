@@ -8,10 +8,11 @@ class Tag(models.Model):
 
 class Organization(models.Model):
     name = models.CharField(max_length=100)
+    logo = models.ImageField(upload_to='tasks/pictures', blank=True, null=True)
     mission_statement = models.TextField(max_length=255)
     description = models.TextField()
-    location = models.CharField(max_length=200)
-    tags = models.ManyToManyField(Tag)
+    location = models.CharField(max_length=200, default="")
+    tags = models.ManyToManyField(Tag, null=True)
 
     def __unicode__(self):
         return self.name
@@ -22,10 +23,10 @@ class Task(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     reward = models.PositiveIntegerField()
-    location = models.CharField(max_length=200)
+    location = models.CharField(max_length=200, default="")
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, blank=True, null=True)
 
     def __unicode__(self):
         return self.title

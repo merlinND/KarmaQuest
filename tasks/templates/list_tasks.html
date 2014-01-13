@@ -1,6 +1,6 @@
 {# No task #}
 {% if tasks.count < 1 %}
-  <p>No tasks are available right now.</p>
+  <p>No tasks to show for now.</p>
 {% endif %}
 {# Task list #}
 {% for task in tasks %}
@@ -8,6 +8,7 @@
   <div class="panel-heading">
     <h3 class="panel-title">
       {{ task.title | truncatechars:50 }}
+      <small>by <a href="{% url "tasks:org_detail" task.organizer.id %}">{{ task.organizer.name }}</a></small>
       <div class="pull-right karma-points">{{ task.reward }}</div>
     </h3>
   </div>

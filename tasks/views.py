@@ -56,3 +56,16 @@ class OrgDetailView(DetailView):
     template_name = 'org_detail.html'
     context_object_name = 'organization'
 org_detail = OrgDetailView.as_view()
+
+class OrgTasks(DetailView):
+    model = Organization
+    pk_url_kwarg = 'org_id'
+    template_name = 'org_tasks.html'
+    context_object_name = 'organization'
+
+    def get_context_data(self, **kwargs):
+        _super = super(DetailView, self)
+        context = _super.get_context_data(**kwargs)
+        context['tasks'] = Task.objects.filter(organizer_id=self.object.id)
+        return context
+org_tasks = OrgTasks.as_view()

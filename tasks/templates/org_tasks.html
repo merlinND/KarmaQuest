@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}
+Tasks by {{ organization.name }}
+{% endblock %}
+
+{% block content %}
+	<h2>Tasks by <a href="{% url "tasks:org_detail" organization.id %}">{{ organization.name }}</a></h2>
+	{% include "list_tasks.html" with tasks=tasks %}
+{% endblock %}

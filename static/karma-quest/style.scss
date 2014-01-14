@@ -5,57 +5,80 @@ body {
     color:#333;
     margin:0;
     font-size:12px;
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: Imprima, Helvetica, Arial, sans-serif;
+    }
 }
 
-header {
-    margin:0;
-    background:#00A8C6;
-    position: relative;
-    color:#fff;
+nav {
     height: 3.8em;
+    margin:0;
+    position: relative;
+    
+    font-family: Imprima, Helvetica, Arial, sans-serif;
 
-    h1 {
-        font-family: Raleway, Helvetica, Arial, sans-serif;
-        margin:0;
-        padding: 0.3em;
+    &.navbar-karma {
+        background:#00A6C4 !important;        
         color:#fff;
-        position:relative;
+
+        h1, li, a {
+            color:#fff !important;
+        }
+        
+        h1 {
+            font-family: Imprima, Helvetica, Arial, sans-serif;
+            margin:0;
+            padding: 0.3em;
+            position:relative;
+        }
     }
+
 
     .search-form {
         width:  270px;
         position:absolute;
         left:50%;
-        margin-left:-125px;
-        top:0;
+        margin-left:-115px;
+        top:3px;
         padding: 1em;
 
         button {
-            background: url('../img/lupe.png') left top;
-            width:20px;
-            height:20px;
+            background: url('loupe.png') left top;
+            width:16px;
+            height:16px;
             border:none;
-            position: relative;
-            top:-0.3em;
+            position:relative;
+            top:1px;
             margin: 0 0.2em;
         }
 
         input {
-            border: none;
-            border-radius: 2px;
+            border: 1px solid #AAA;
+            border-radius: 5px;
             height:1.7em;
             padding: 2px 5px;
         }
     }
+    @media only screen and (max-width: 620px)
+    {
+        .search-form {
+            display: none;
+        }
+    }
 
     .profile {
+        display: block;
         position:absolute;
+        height: 100%;
+        padding-left: 10px;
         right: 0;
         top: 0;
-        background:rgba(255,255,255,0.1);
+        // background: rgba(0, 0, 0, 0.1);
         z-index: 10;
 
         .profile-picture {
+            display: block;
             width:35px;
             height:35px;
             padding:6px;
@@ -64,34 +87,18 @@ header {
         }
 
         .profile-data {
+            display: block;
             width:150px;
             height:2em;
+            padding-left: 15px;
             font-weight: bold;
             position:relative;
             float:right;
             line-height:2.1;
         }
 
-        .level-container {
-            width:11em;
-            height:1.2em;
-            border-radius:3px;
-            background:rgba(255,255,255, 0.25);
-            position:relative;
-            line-height: 1.2;
-        }
-
-        .level-bar {
-            background:#F9F2E7;
-            width:50%;
-            height:100%;
-            color:#00A6C4;
-            border-radius: 3px;
-            position:relative;
-            text-align: center;
-        }
-
         .profile-drop {
+            display: block;
             position: absolute;
             z-index: 0;
             background:#40C0CB;
@@ -117,7 +124,6 @@ header {
                 }
             }
         }
-
         &:hover .profile-drop{
             right:0;
             width: 198px;
@@ -141,6 +147,28 @@ header {
     padding: 5px;
     border: 3px solid #ffce1e; /* #428bca */
     border-radius: 100%;
+}
+
+.level-container {
+    display: block;
+    width:95%;
+    height:1.5em;
+    border-radius:3px;
+    background:rgba(255,255,255, 0.25);
+    position:relative;
+    top: -3px;
+    line-height: 1.5em;
+}
+
+.level-bar {
+    display: block;
+    background:#F9F2E7;
+    width:70%;
+    height:100%;
+    color:#00A6C4;
+    border-radius: 3px;
+    position:relative;
+    text-align: center;
 }
 
 .tags {

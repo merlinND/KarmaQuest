@@ -21,9 +21,11 @@ nav {
       font-family: Imprima, Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0.3em;
-      position: relative; }
+      position: relative;
+      color: #fff;
+      height: 4em; }
   nav .search-form {
-    width: 270px;
+    width: 220px;
     position: absolute;
     left: 50%;
     margin-left: -115px;
@@ -41,7 +43,50 @@ nav {
       border: 1px solid #AAA;
       border-radius: 5px;
       height: 1.7em;
-      padding: 2px 5px; }
+      padding: 0.1em 0.7em;
+      width: 170px;
+      outline: none;
+      -webkit-transition: 0.3s all;
+      -moz-transition: 0.3s all;
+      transition: 0.3s all; }
+    nav .search-form input:focus {
+      width: 200px;
+      margin-left: -10px; }
+    nav .search-form input:focus + button {
+      display: inline;
+      opacity: 0.8; }
+    nav .search-form button {
+      background: url("img/lupe_black.png") left top;
+      width: 17px;
+      height: 17px;
+      border: none;
+      position: relative;
+      vertical-align: middle;
+      margin-left: -27px;
+      opacity: 0;
+      -webkit-transition: 0.3s opacity;
+      -moz-transition: 0.3s opacity;
+      transition: 0.3s opacity; }
+  nav .header-nav {
+    position: absolute;
+    right: 188px;
+    top: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.1); }
+    nav .header-nav li {
+      color: #fff;
+      line-height: 4em;
+      display: inline-block;
+      padding: 0 0.8em;
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      font-weight: bold; }
+    nav .header-nav a {
+      color: #fff; }
   @media only screen and (max-width: 620px) {
     nav .search-form {
       display: none; } }
@@ -73,25 +118,30 @@ nav {
       display: block;
       position: absolute;
       z-index: 0;
-      background: #40C0CB;
-      top: 3.8em;
+      background: #00A8C6;
+      top: 4em;
       right: 0;
       width: 0;
-      overflow: hidden;
-      -moz-transition: 0.1s all; }
+      overflow: hidden; }
+      nav .profile .profile-drop ul {
+        padding: 0;
+        margin: 0; }
       nav .profile .profile-drop li {
-        margin: 0.5em;
-        padding: 0 0.5em;
+        margin: 0;
         list-style: none; }
         nav .profile .profile-drop li a {
+          padding: 1em;
           color: #fff;
           font-weight: bold;
-          text-decoration: none; }
+          text-decoration: none;
+          display: block;
+          width: 100%;
+          height: 100%; }
           nav .profile .profile-drop li a:hover {
             background: rgba(255, 255, 255, 0.2); }
     nav .profile:hover .profile-drop {
       right: 0;
-      width: 198px; }
+      width: 188px; }
 
 .sidebar {
   width: 220px;

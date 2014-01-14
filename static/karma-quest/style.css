@@ -29,20 +29,12 @@ nav {
     position: absolute;
     left: 50%;
     margin-left: -115px;
-    top: 3px;
+    top: -1px;
     padding: 1em; }
-    nav .search-form button {
-      background: url("loupe.png") left top;
-      width: 16px;
-      height: 16px;
-      border: none;
-      position: relative;
-      top: 1px;
-      margin: 0 0.2em; }
     nav .search-form input {
       border: 1px solid #AAA;
       border-radius: 5px;
-      height: 1.7em;
+      height: 2.3em;
       padding: 0.1em 0.7em;
       width: 170px;
       outline: none;
@@ -52,13 +44,10 @@ nav {
     nav .search-form input:focus {
       width: 200px;
       margin-left: -10px; }
-    nav .search-form input:focus + button {
-      display: inline;
-      opacity: 0.8; }
     nav .search-form button {
-      background: url("img/lupe_black.png") left top;
-      width: 17px;
-      height: 17px;
+      background: url("img/search.png") left top;
+      width: 16px;
+      height: 16px;
       border: none;
       position: relative;
       vertical-align: middle;
@@ -67,6 +56,9 @@ nav {
       -webkit-transition: 0.3s opacity;
       -moz-transition: 0.3s opacity;
       transition: 0.3s opacity; }
+    nav .search-form input:focus + button {
+      display: inline;
+      opacity: 1; }
   nav .header-nav {
     position: absolute;
     right: 188px;
@@ -165,16 +157,20 @@ nav {
   position: relative;
   top: -3px;
   line-height: 1.5em; }
+  .level-container .level-bar {
+    display: block;
+    background: #F9F2E7;
+    width: 70%;
+    height: 100%;
+    color: #00A6C4;
+    border-radius: 3px;
+    position: relative;
+    text-align: center; }
 
-.level-bar {
-  display: block;
-  background: #F9F2E7;
-  width: 70%;
-  height: 100%;
-  color: #00A6C4;
-  border-radius: 3px;
-  position: relative;
-  text-align: center; }
+.panel .level-container {
+  background-color: #DFDFDF; }
+  .panel .level-container .level-bar {
+    background-color: #ffce1e; }
 
 .tags .glyphicon {
   margin-right: 10px; }

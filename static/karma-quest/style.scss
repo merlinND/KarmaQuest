@@ -1,39 +1,60 @@
 @import "normalize.css";
 
 body {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     color:#333;
     margin:0;
     font-size:12px;
+}
 
-    h1, h2, h3, h4, h5, h6 {
-        font-family: Imprima, Helvetica, Arial, sans-serif;
-    }
+h1, h2, h3, h4, h5, h6 {
+    font-family: Imprima, Helvetica, Arial, sans-serif;
+    margin: 0 0 1em;
+}
+
+h2{
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.7em;
+}
+
+
+.container:before {
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4.2em;
+    background:#00A6C4;
 }
 
 nav {
-    height: 3.8em;
+    height: 4em;
     margin:0;
     position: relative;
 
-    font-family: Imprima, Helvetica, Arial, sans-serif;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 
     &.navbar-karma {
-        background:#00A6C4 !important;        
+        background:#00A6C4;
         color:#fff;
 
         h1, li, a {
-            color:#fff !important;
+            color:#fff ;
         }
-        
-        h1 {
-            font-family: Imprima, Helvetica, Arial, sans-serif;
-            margin:0;
-            padding: 0.3em;
-            position:relative;
+        a:hover {
+            background:transparent;
+        }
+        .navbar-collapse a:hover {
+            text-decoration: underline;
+        }
 
-            color:#fff;
-            height: 4em;
+        .navbar-brand {
+            font-family: Imprima, Helvetica, Arial, sans-serif;
+            font-size: 2em;
         }
     }
 
@@ -46,8 +67,8 @@ nav {
         padding: 1em;
 
         input {
-            border: 1px solid #AAA;
-            border-radius: 5px;
+            border: 1px solid #AAC;
+            border-radius: 1em;
             height:2.3em;
             padding: 0.1em 0.7em;
             width:170px;
@@ -141,6 +162,19 @@ nav {
             float:right;
             line-height:2.1;
         }
+        .login-button {
+            background: rgba(255,255,255,0.25);
+            padding:0.5em 0.8em;
+            margin:1.22em;
+            position: relative;
+            top: 1.22em;
+            border-radius: 5px;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
         .profile-drop {
             display: block;
             position: absolute;
@@ -234,5 +268,70 @@ nav {
         margin-right: 5px;
         padding: 5px !important;
         border: 1px grey solid;
+    }
+}
+
+.thumbnail img {
+    max-height: 200px;
+}
+
+.panel-default {
+    background: rgb(242,246,247); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(242,246,247,1) 0%, rgba(255,255,255,1) 21%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(242,246,247,1)), color-stop(21%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(242,246,247,1) 0%,rgba(255,255,255,1) 21%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(242,246,247,1) 0%,rgba(255,255,255,1) 21%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(242,246,247,1) 0%,rgba(255,255,255,1) 21%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(242,246,247,1) 0%,rgba(255,255,255,1) 21%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f7', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+
+    & >.panel-heading {
+        background:transparent;
+        border-bottom:none;
+        h3 {
+            font-size: 1.5em;
+        }
+    }
+}
+
+.login-well {
+    max-width: 500px;
+    margin: 3em auto;
+    position:relative;
+    z-index: 10;
+    border: 5px solid #373737;
+
+    input {
+        margin:0.2em 0;
+    }
+
+    button {
+        margin-top:0.5em;
+    }
+}
+.bandeau-login {
+    position:absolute;
+    top:4em;;
+    left:0;
+    width:100%;
+    height:25em;
+    background:#4F4F4F;
+    background: -moz-radial-gradient(center, ellipse cover,  #606060 0%, #4f4f4f 50%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#606060), color-stop(50%,#4f4f4f)); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover,  #606060 0%,#4f4f4f 50%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover,  #606060 0%,#4f4f4f 50%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover,  #606060 0%,#4f4f4f 50%); /* IE10+ */
+    background: radial-gradient(ellipse at center,  #606060 0%,#4f4f4f 50%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606060', endColorstr='#4f4f4f',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    z-index: 1;
+}
+
+aside {
+    text-align: center;
+
+    p, h3 {
+        text-align: left;
     }
 }

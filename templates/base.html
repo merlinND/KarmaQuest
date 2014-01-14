@@ -23,8 +23,7 @@
     <body>
         {% block body %}
         <div class="container">
-
-          <nav class="navbar navbar-default navbar-karma" role="navigation">
+          <nav class="navbar navbar-karma" role="navigation">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -49,6 +48,7 @@
             {# Profile picture + progress #}
             <a href="{% url "user:user_profile" %}">
               <span class="profile">
+                {% if user.is_authenticated %}
                 <span class="profile-picture">
                   <img src="/user/pictures/{{ user }}.jpg" width="35" height="35" alt="Your profile" class="img-rounded" >
                 </span>
@@ -60,16 +60,13 @@
                     </span>
                   </span>
                 </span>
+                {% else %}
+                <span class="login-button">
+                  Sign in
+                </span>
+                {% endif %}
               </span>
             </a>
-              <!--<div class="profile-drop">
-                <ul>
-                  <li><a href="{% url "user:user_profile" %}">Profile</a></li>
-                  <li><a href="">Tasks</a></li>
-                  <li><a href="{% url "user:logout" %}">Logout</a></li>
-                </ul>
-              </div>-->
-
           </nav>
 
           {% block content %}

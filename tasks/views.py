@@ -2,13 +2,21 @@ import datetime
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render_to_response
 from django.views.generic import ListView, DetailView
+from django.template import RequestContext
 from tasks.models import Task, Organization
+from user.models import UserInformation
 
 def home_feed(request):
     """
     Show the user's home feed.
     """
-    return render_to_response('home.html')
+    context = RequestContext(request)
+    try:
+        user_info = UserInformation.objects.get(user_id=request.user.id)
+        context['user_info'] = user_info
+    except:
+        pass
+    return render_to_response('home.html', context_instance=context)
 
 class TaskListView(ListView):
     http_method_names = ['get']

@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django import forms
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.views.generic import DetailView
+from django.core.exceptions import ObjectDoesNotExist
 
 from user.models import UserInformation
 
@@ -15,7 +15,13 @@ def user_profile(request):
     """
     Show the user's profile page.
     """
-    user_info = UserInformation.objects.get(user_id=request.user.id)
+    try:
+        user_info = UserInformation.objects.get(user_id=request.user.id)
+    except ObjectDoesNotExist:
+        user_info = {
+            'level': 1,
+            'points': 0
+        }
     context = RequestContext(request, {
         'user_info': user_info
         });

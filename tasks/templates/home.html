@@ -8,7 +8,7 @@ Home
 	{% block upcoming %}
 	<section>
 		<h3>Upcoming tasks</h3>
-		<p>TODO</p>
+		{% include "list_tasks.html" with tasks=user_info.tasks.all %}
 	</section>
 	{% endblock upcoming %}
 

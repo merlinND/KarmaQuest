@@ -10,7 +10,7 @@
     <div class="panel-body">
       <h2>
         {{ task.title }}
-        <div class="pull-right karma-points">{{ task.reward }}</div>
+        <div class="pull-right"><span class="karma-points">{{ task.reward }}</span> karma points</div>
         <small>by <a href="{% url "tasks:org_detail" task.organizer.id %}">{{ task.organizer.name }}</a></small>
       </h2>
       <!--<header>Images in a slider</header>-->
@@ -19,11 +19,15 @@
       {% include "tags_list.html" with tags=task.tags.all %}
       
       <p>{{ task.description }}</p>
+      <ul class="list-unstyled">
+        <li>Starts {{ task.start_date }}</li>
+        <li>Ends {{ task.end_date }}</li>
+      </ul>
 
+      <hr>
       {# Location (map) #}
       {% include "map_component.html" %}
 
-      <p>Start and end date + explicit duration</p>
       <p>
         <button type="button" class="btn btn-primary">Participate</button> and win <b>{{ task.reward }} karma points</b>
       </p>

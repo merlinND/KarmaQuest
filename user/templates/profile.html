@@ -5,19 +5,40 @@ Profile
 {% endblock %}
 
 {% block content %}
-	<section>
-		<h2>Welcome, {{ user }}!</h2>
-		<img src="http://www.placekitten.com/50/50" class="image-rounded" alt="{{ user }}'s profile picture">
-		<p>Current level: {{ user_info.level }}</p>
-		<p>Total points: <span class="karma-points">{{ user_info.points }}</span> (progress bar to next level)</p>
-		<p>Achievements</p>
-	</section>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Welcome, {{ user }}!</h3>
+		</div>
+			<div class="panel-body">
+			<div class="col-md-2">
+				<img src="/user/pictures/{{user}}.jpg" class="img-rounded" alt="{{ user }}'s profile picture" style="width:100%;">
+			</div>
+	
+			<div class="col-md-6 profile">
+				<p>
+					Current level:
+					<div class="level-container">
+                  		<div class="level-bar">
+                    		{{ user_info.level }}
+                  		</div>
+                	</div>
+                </p>
+
+				<p>
+					Total points: <span class="karma-points">{{ user_info.points }}</span>
+				</p>
+
+				<h3>Achievements</h3>
+				{# TODO : list achievements #}
+			</div>
+		</div>
+	</div>
 
 	<section>
-		<!-- <h3>Upcoming tasks</h3> -->
-
-		<h3>Previously completed tasks</h3>
-
+		<h3>Upcoming tasks</h3>
 		{% include "list_tasks.html" with tasks=user_info.tasks.all %}
+
+		<!-- <h3>Previously completed tasks</h3> -->
+
 	</section>
 {% endblock content %}

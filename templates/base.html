@@ -8,7 +8,10 @@
         {% block bootstrap %}
         <link rel="stylesheet" href="{% static "bootstrap-3.0.2/css/bootstrap.min.css" %}" media="all">
         <link rel="stylesheet" href="{% static "font-awesome-4.0.3/css/font-awesome.min.css" %}" media="all">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Imprima:400,700' type='text/css'>
         <link rel="stylesheet" href="{% static "karma-quest/style.css" %}" media="all">
+
+        <script type="text/javascript" src="{% static "bootstrap-3.0.2/js/jquery.min.js" %}"></script>
         <script type="text/javascript" src="{% static "bootstrap-3.0.2/js/bootstrap.min.js" %}"></script>
         {% endblock %}
         {% endblock %}
@@ -16,7 +19,7 @@
     <body>
         {% block body %}
         <div class="container">
-          <nav class="navbar navbar-default" role="navigation">
+          <nav class="navbar navbar-default navbar-karma" role="navigation">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -26,9 +29,42 @@
               </button>
               <a class="navbar-brand" href="{% url "tasks:home_feed" %}">KarmaQuest</a>
             </div>
+
+            {# Menu #}
             <div id="navbar-collapse" class="collapse navbar-collapse">
               {% include "menu.html" %}
             </div>
+
+            {# Search form #}
+            <form action="" class="search-form">
+              <input type="text" placeholder="Search...">
+              <button type="submit"></button>
+            </form>
+
+            {# Profile picture + progress #}
+            <a href="{% url "user:user_profile" %}">
+              <span class="profile">
+                <span class="profile-picture">
+                  <img src="/user/pictures/{{ user }}.jpg" width="35" height="35" alt="Your profile" class="img-rounded" >
+                </span>
+                <span class="profile-data">
+                  {{ user }}
+                  <span class="level-container">
+                    <span class="level-bar">
+                      {{ 12 }}
+                    </span>
+                  </span>
+                </span>
+              </span>
+            </a>
+              <!--<div class="profile-drop">
+                <ul>
+                  <li><a href="{% url "user:user_profile" %}">Profile</a></li>
+                  <li><a href="">Tasks</a></li>
+                  <li><a href="{% url "user:logout" %}">Logout</a></li>
+                </ul>
+              </div>-->
+
           </nav>
           {% block content %}
           {% endblock content %}

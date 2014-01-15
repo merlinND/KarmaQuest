@@ -269,3 +269,10 @@ aside {
   text-align: center; }
   aside p, aside h3 {
     text-align: left; }
+
+div.social-share, .social-share {
+  text-align: right; }
+  div.social-share img, .social-share img {
+    display: inline;
+    margin: 0 2px 0 0;
+    cursor: pointer; }

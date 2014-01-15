@@ -335,3 +335,12 @@ aside {
         text-align: left;
     }
 }
+
+div.social-share, .social-share {
+    text-align: right;
+    img {
+        display: inline;
+        margin:0 2px 0 0;
+        cursor:pointer;
+    }
+}

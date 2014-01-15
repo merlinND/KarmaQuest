@@ -40,5 +40,23 @@
         Sign in
       </button>
   </form>
+
+  {# Social network login #}
+  <div class="social-login">
+    <a href="#"><img class="login-button" src="{% static "karma-quest/img/facebook-login.png" %}" title="Facebook login" alt="Facebook login"></a>
+    <a href="#"><img class="login-button" src="{% static "karma-quest/img/google-login.png" %}" title="Google login" alt="Google login"></a>
+  </div>
+  <style type="text/css">
+    .social-login {
+      width: 410px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    img.login-button {
+      height: 42px;
+      margin: 5px;
+    }
+  </style>
 </div>
 {% endblock %}
